@@ -1,12 +1,19 @@
 ## gocensys
 
-## Work in progress!!
+## Milestone
+
 [data](https://censys.io/api/v1/docs/data) - Done
+
 [view](https://censys.io/api/v1/docs/view) - Done
+
 [report](https://censys.io/api/v1/docs/report) - TODO
+
 [query](https://censys.io/api/v1/docs/query) - TODO
+
 [export](https://censys.io/api/v1/docs/export) - TODO
+
 [search](https://censys.io/api/v1/docs/search) - TODO 
+
 
 [![Build Status](https://travis-ci.org/abadojack/gocensys.svg?branch=master)](https://travis-ci.org/abadojack/gocensys)  [![GoDoc](https://godoc.org/github.com/abadojack/gocensys?status.png)](http://godoc.org/github.com/abadojack/gocensys)
 
