@@ -1,6 +1,17 @@
 ## gocensys
 
-## Milestone
+[![Build Status](https://travis-ci.org/abadojack/gocensys.svg?branch=master)](https://travis-ci.org/abadojack/gocensys)  [![GoDoc](https://godoc.org/github.com/abadojack/gocensys?status.png)](http://godoc.org/github.com/abadojack/gocensys)
+
+gocensys is a simple Go package for accessing the [Censys API](https://www.censys.io/api/v1).
+
+Successful API queries return native Go structs that can be used immediately,
+with no need for type assertions.
+
+gocensys implements endpoints defined in the documentation: https://www.censys.io/api/v1.
+More detailed information about the behavior of each particular endpoint can be found at the official documentation.
+
+
+## Milestone - based on endpoints implemented.
 
 [data](https://censys.io/api/v1/docs/data) - Done
 
@@ -12,21 +23,12 @@
 
 [export](https://censys.io/api/v1/docs/export) - TODO
 
-[search](https://censys.io/api/v1/docs/search) - TODO 
+[search](https://censys.io/api/v1/docs/search) - TODO
 
 
-[![Build Status](https://travis-ci.org/abadojack/gocensys.svg?branch=master)](https://travis-ci.org/abadojack/gocensys)  [![GoDoc](https://godoc.org/github.com/abadojack/gocensys?status.png)](http://godoc.org/github.com/abadojack/gocensys)
-
-gocensys is a simple Go package for accessing the [Censys API](https://www.censys.io/api/v1).
-
-Successful API queries return native Go structs that can be used immediately,
-with no need for type assertions.
-
-gocensys implements endpoints defined in the documentation: https://www.censys.io/api/v1.
-More detailed information about the behavior of each particular endpoint can be found at the official documentation.
 
 ## Installation
-	
+
 	$ go get -u github.com/abadojack/gocensys
 
 ## Usage
