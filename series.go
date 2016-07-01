@@ -7,6 +7,7 @@ type PrimarySeries struct {
 	AlexaTop1MillionSnapshots PrimarySeriesDetail `json:"Alexa Top 1 Million Snapshots"`
 }
 
+// PrimarySeriesDetail represents detials about the primary series of the scan.
 type PrimarySeriesDetail struct {
 	Description  string       `json:"description"`
 	DetailsURL   string       `json:"details_url"`
@@ -15,12 +16,14 @@ type PrimarySeriesDetail struct {
 	Name         string       `json:"name"`
 }
 
+// LatestResult represents details the latest scan results.
 type LatestResult struct {
 	Timestamp  string `json:"timestamp"`
 	Name       string `json:"name"`
 	DetailsURL string `json:"details_url"`
 }
 
+// RawSeries represents raw series of the scan.
 type RawSeries struct {
 	Two2SSHBannerFullIpv4             RawSeriesDetail `json:"22-ssh-banner-full_ipv4"`
 	Two5SMTPStarttlsAlexaTop1Mil      RawSeriesDetail `json:"25-smtp-starttls-alexa_top1mil"`
@@ -72,6 +75,7 @@ type RawSeries struct {
 	Nine95Pop3SSsl2FullIpv4           RawSeriesDetail `json:"995-pop3s-ssl_2-full_ipv4"`
 }
 
+// RawSeriesDetail represents details about the raw series of the scan.
 type RawSeriesDetail struct {
 	Subprotocol  string       `json:"subprotocol"`
 	Desription   string       `json:"desription"`
@@ -84,29 +88,13 @@ type RawSeriesDetail struct {
 	Port         int          `json:"port"`
 }
 
-type RawSeriesDetails struct {
-	Subprotocol  string       `json:"subprotocol"`
-	Desription   string       `json:"desription"`
-	Protocol     string       `json:"protocol"`
-	Name         string       `json:"name"`
-	DetailsURL   string       `json:"details_url"`
-	LatestResult LatestResult `json:"latest_result"`
-	Destination  string       `json:"destination"`
-	ID           string       `json:"id"`
-	Port         int          `json:"port"`
-}
-
+// Result represents the general scan results which include the latest results and historical results.
 type Result struct {
-	HistoricalResult []HistoricalResult `json:"historical"`
-	LatestResult     LatestResult       `json:"latest_result"`
+	HistoricalResult []LatestResult `json:"historical"`
+	LatestResult     LatestResult   `json:"latest_result"`
 }
 
-type HistoricalResult struct {
-	Timestamp  string `json:"timestamp"`
-	Name       string `json:"name"`
-	DetailsURL string `json:"details_url"`
-}
-
+// ScanResult represents details about all the scan results.
 type ScanResult struct {
 	Files  Files       `json:"files"`
 	TaskID interface{} `json:"task_id"`
@@ -121,6 +109,7 @@ type ScanResult struct {
 	} `json:"metadata"`
 }
 
+// Files represents the different kinds of files that can be downloaded.
 type Files struct {
 	ZtagMetadata     File `json:"ztag-metadata"`
 	ZteeZgrabUpdates File `json:"ztee-zgrab-updates"`
@@ -134,6 +123,7 @@ type Files struct {
 	ZtagLog          File `json:"ztag-log"`
 }
 
+// File represents details about a downloadable file.
 type File struct {
 	CompressedSize              int         `json:"compressed_size"`
 	CompressedSha256Fingerprint interface{} `json:"compressed_sha256_fingerprint"`
