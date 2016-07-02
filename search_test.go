@@ -9,10 +9,8 @@ func Test_Search(t *testing.T) {
 		"fields": []string{"ip", "location.country", "autonomous_system.asn"},
 	}
 
-	s, err := api.Search("ipv4", query)
+	_, err := api.Search("ipv4", query)
 	if err != nil {
 		t.Fatal(err)
-	} else {
-		t.Log(s)
 	}
 }
