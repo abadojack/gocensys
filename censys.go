@@ -1,7 +1,9 @@
 package gocensys
 
 import (
+	"bytes"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"net/url"
 )
@@ -52,19 +54,24 @@ func (c CensysAPI) apiGet(endpoint string, form url.Values, data interface{}) er
 	return decodeResponse(resp, data)
 }
 
-/*
 // apiPost performs "POST" requests on the specified endpoint.
-func (c CensysAPI) apiPost(endpoint string, form url.Values, data interface{}) error {
-	req, err := http.NewRequest("POST", BaseURL+endpoint, nil)
+func (c CensysAPI) apiPost(endpoint string, query map[string]interface{}, form url.Values, data interface{}) error {
+	jsonStr, err := json.Marshal(query)
+	if err != nil {
+		return err
+	}
+	fmt.Println(string(jsonStr))
+	req, err := http.NewRequest("POST", BaseURL+endpoint, bytes.NewBuffer(jsonStr))
 	if err != nil {
 		return err
 	}
 
-	req.SetBasicAuth(c.UID, c.Secret)
-	//req.Form = form
-	fmt.Println(req.Method)
+	req.Header.Set("Content-Type", "application/json")
 
-	resp, err := c.HTTPClient.PostForm("https://www.censys.io/api/v1/search/certificates", url.Values{"query": {"80.http.get.headers.server: nginx"}})
+	req.SetBasicAuth(c.UID, c.Secret)
+	req.Form = form
+
+	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
 		return err
 	}
@@ -73,7 +80,6 @@ func (c CensysAPI) apiPost(endpoint string, form url.Values, data interface{}) e
 
 	return decodeResponse(resp, data)
 }
-*/
 
 // decodeResponse unmarshals the a json file into a Go struct
 func decodeResponse(resp *http.Response, data interface{}) error {

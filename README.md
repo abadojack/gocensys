@@ -23,7 +23,7 @@ More detailed information about the behavior of each particular endpoint can be 
 
 [export](https://censys.io/api/v1/docs/export) - TODO
 
-[search](https://censys.io/api/v1/docs/search) - TODO
+[search](https://censys.io/api/v1/docs/search) - Done
 
 
 

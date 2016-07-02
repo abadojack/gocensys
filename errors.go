@@ -2,6 +2,7 @@ package gocensys
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -14,13 +15,14 @@ type APIError struct {
 
 // ApiError supports the error interface
 func (apiErr APIError) Error() string {
-	return fmt.Sprintf("%s %s returned status %d, %s", apiErr.Request.Method, apiErr.Request.URL, apiErr.ErrorCode, apiErr.ErrorStr)
+	return fmt.Sprintf("%s %s returned %s", apiErr.Request.Method, apiErr.Request.URL, apiErr.ErrorStr)
 }
 
 func newAPIError(resp *http.Response) *APIError {
+	respBody, _ := ioutil.ReadAll(resp.Body) // TODO : Please don't ignore this error.
 	return &APIError{
 		ErrorCode: resp.StatusCode,
-		ErrorStr:  resp.Status,
+		ErrorStr:  string(respBody),
 		Request:   resp.Request,
 	}
 }
