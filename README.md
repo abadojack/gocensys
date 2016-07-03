@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/abadojack/gocensys.svg?branch=master)](https://travis-ci.org/abadojack/gocensys)  [![GoDoc](https://godoc.org/github.com/abadojack/gocensys?status.png)](http://godoc.org/github.com/abadojack/gocensys)
 
-gocensys is a simple Go package for accessing the [Censys API](https://www.censys.io/api/v1).
+gocensys is a simple Go package for accessing the [Censys API](https://www.censys.io/api).
 
 Successful API queries return native Go structs that can be used immediately,
 with no need for type assertions.
