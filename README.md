@@ -17,7 +17,7 @@ More detailed information about the behavior of each particular endpoint can be 
 
 [view](https://censys.io/api/v1/docs/view) - Done
 
-[report](https://censys.io/api/v1/docs/report) - TODO
+[report](https://censys.io/api/v1/docs/report) - Done
 
 [query](https://censys.io/api/v1/docs/query) - TODO
 

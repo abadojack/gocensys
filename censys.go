@@ -3,7 +3,6 @@ package gocensys
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"net/url"
 )
@@ -60,7 +59,7 @@ func (c CensysAPI) apiPost(endpoint string, query map[string]interface{}, form u
 	if err != nil {
 		return err
 	}
-	fmt.Println(string(jsonStr))
+
 	req, err := http.NewRequest("POST", BaseURL+endpoint, bytes.NewBuffer(jsonStr))
 	if err != nil {
 		return err
