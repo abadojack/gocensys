@@ -21,7 +21,7 @@ More detailed information about the behavior of each particular endpoint can be 
 
 [query](https://censys.io/api/v1/docs/query) - TODO
 
-[export](https://censys.io/api/v1/docs/export) - TODO
+[export](https://censys.io/api/v1/docs/export) - Done
 
 [search](https://censys.io/api/v1/docs/search) - Done
 
