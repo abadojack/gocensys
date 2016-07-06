@@ -20,7 +20,7 @@ func Test_Export(t *testing.T) {
 	//Jobs typically require 15-30 seconds to execute.
 	time.Sleep(30 * time.Second)
 
-	_, err = api.GetJobStatus(job.JobID)
+	_, err = api.GetExportJobStatus(job.JobID)
 	if err != nil {
 		t.Fatal(err)
 	}

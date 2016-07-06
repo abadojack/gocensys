@@ -42,8 +42,8 @@ func (c CensysAPI) StartExportJob(data map[string]interface{}) (Job, error) {
 	return job, err
 }
 
-//GetJobStatus lets you retrieve information about a previously submitted job.
-func (c CensysAPI) GetJobStatus(jobID string) (JobStatus, error) {
+//GetExportJobStatus lets you retrieve information about a previously submitted job.
+func (c CensysAPI) GetExportJobStatus(jobID string) (JobStatus, error) {
 	var jobStatus JobStatus
 
 	err := c.apiGet("/export/"+jobID, nil, &jobStatus)
