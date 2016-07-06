@@ -54,7 +54,7 @@ func (c CensysAPI) apiGet(endpoint string, form url.Values, data interface{}) er
 }
 
 // apiPost performs "POST" requests on the specified endpoint.
-func (c CensysAPI) apiPost(endpoint string, query map[string]interface{}, form url.Values, data interface{}) error {
+func (c CensysAPI) apiPost(endpoint string, query map[string]interface{}, data interface{}) error {
 	jsonStr, err := json.Marshal(query)
 	if err != nil {
 		return err
@@ -68,7 +68,6 @@ func (c CensysAPI) apiPost(endpoint string, query map[string]interface{}, form u
 	req.Header.Set("Content-Type", "application/json")
 
 	req.SetBasicAuth(c.UID, c.Secret)
-	req.Form = form
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {

@@ -6,7 +6,7 @@ package gocensys
 func (c CensysAPI) Search(index string, query map[string]interface{}) (SearchResults, error) {
 	var searchResults SearchResults
 
-	err := c.apiPost("/search/"+index, query, nil, &searchResults)
+	err := c.apiPost("/search/"+index, query, &searchResults)
 
 	return searchResults, err
 }

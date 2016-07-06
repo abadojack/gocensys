@@ -22,7 +22,7 @@ type Report struct {
 func (c CensysAPI) CreateReport(index string, query map[string]interface{}) (Report, error) {
 	var report Report
 
-	err := c.apiPost("/report/"+index, query, nil, &report)
+	err := c.apiPost("/report/"+index, query, &report)
 
 	return report, err
 }
