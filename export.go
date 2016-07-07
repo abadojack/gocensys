@@ -1,7 +1,7 @@
 package gocensys
 
-//Job represents an export job.
-type Job struct {
+//ExportJob represents an export job.
+type ExportJob struct {
 	Status        string `json:"status"`
 	Configuration struct {
 		Format    string `json:"format"`
@@ -14,8 +14,8 @@ type Job struct {
 	JobID string `json:"job_id"`
 }
 
-//JobStatus represents the status of a submitted job.
-type JobStatus struct {
+//ExportJobStatus represents the status of a submitted job.
+type ExportJobStatus struct {
 	Status     string `json:"status"`
 	Statistics struct {
 		BackendTime interface{} `json:"backend_time"`
@@ -34,8 +34,8 @@ type JobStatus struct {
 }
 
 //StartExportJob lets you submit an export job.
-func (c CensysAPI) StartExportJob(data map[string]interface{}) (Job, error) {
-	var job Job
+func (c CensysAPI) StartExportJob(data map[string]interface{}) (ExportJob, error) {
+	var job ExportJob
 
 	err := c.apiPost("/export", data, &job)
 
@@ -43,8 +43,8 @@ func (c CensysAPI) StartExportJob(data map[string]interface{}) (Job, error) {
 }
 
 //GetExportJobStatus lets you retrieve information about a previously submitted job.
-func (c CensysAPI) GetExportJobStatus(jobID string) (JobStatus, error) {
-	var jobStatus JobStatus
+func (c CensysAPI) GetExportJobStatus(jobID string) (ExportJobStatus, error) {
+	var jobStatus ExportJobStatus
 
 	err := c.apiGet("/export/"+jobID, nil, &jobStatus)
 
