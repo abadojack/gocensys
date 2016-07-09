@@ -11,22 +11,6 @@ gocensys implements endpoints defined in the documentation: https://www.censys.i
 More detailed information about the behavior of each particular endpoint can be found at the official documentation.
 
 
-## Milestone - based on endpoints implemented.
-
-[data](https://censys.io/api/v1/docs/data) - Done
-
-[view](https://censys.io/api/v1/docs/view) - Done
-
-[report](https://censys.io/api/v1/docs/report) - Done
-
-[query](https://censys.io/api/v1/docs/query) - Doing
-
-[export](https://censys.io/api/v1/docs/export) - Done
-
-[search](https://censys.io/api/v1/docs/search) - Done
-
-
-
 ## Installation
 
 	$ go get -u github.com/abadojack/gocensys
