@@ -7,7 +7,7 @@ gocensys is a simple Go package for accessing the [Censys API](https://www.censy
 Successful API queries return native Go structs that can be used immediately,
 with no need for type assertions.
 
-gocensys implements endpoints defined in the documentation: https://www.censys.io/api/v1.
+gocensys implements endpoints defined in the documentation: https://www.censys.io/api.
 More detailed information about the behavior of each particular endpoint can be found at the official documentation.
 
 
@@ -23,7 +23,7 @@ More detailed information about the behavior of each particular endpoint can be 
 
 ## Authentication
 
-If you already have the uid and secret for your user, creating the client is simple:
+HTTP basic auth is required using the API ID and secret that are shown under [My Account](https://www.censys.io/account).
 
 ```Go
   api := gocensys.NewCensysAPI("your-uid", "your-secret", nil)
@@ -33,7 +33,12 @@ If you already have the uid and secret for your user, creating the client is sim
 
 Executing queries on an authenticated CensysAPI struct is simple.
 ```Go
-  series, _ := api.GetSeries()
+queryJob, err := api.StartQueryJob("select p110.pop3.ssl_2.certificate.parsed.issuer.province from ipv4.20160708 limit 1000;")
+if err != nil {
+	log.Fatal(err)
+}
+
+fmt.Println(queryJob.JobID)
 ```
 
 ## Licence
