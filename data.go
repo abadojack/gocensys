@@ -9,7 +9,7 @@ func (c CensysAPI) GetSeries() (RawData, error) {
 }
 
 // ViewSeries endpoint returns data censys has about a particular series —
-// a scan of the same protocol and destination accross time—including the list of scans.
+// a scan of the same protocol and destination across time—including the list of scans.
 func (c CensysAPI) ViewSeries(series string) (RawSeriesDetail, error) {
 	var rawSeriesDetail RawSeriesDetail
 	err := c.apiGet("/data/"+series, nil, &rawSeriesDetail)

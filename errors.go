@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-// APIError represents an error reponse
+// APIError represents an error response
 type APIError struct {
 	ErrorCode int
 	ErrorStr  string
